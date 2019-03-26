@@ -24,12 +24,14 @@ namespace HospitalCourse
             InitializeComponent();
         }
 
+        // Список больниц
         public  List<Hospital> listH = new List<Hospital>();
+
+        // Список отделений
+        List<Department> listD = new List<Department>();
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            // Список отделений
-            List<Department> listD = new List<Department>();
 
             // Список пациентов отделения "Хирургия"
             List<Patient> listP = new List<Patient>();
@@ -76,6 +78,8 @@ namespace HospitalCourse
             listH.Add(new Hospital { Name = "Фентези - госпиталь", Address = "Дублин", Foundation = new DateTime(1202, 11, 10), HospHead = "Гиппократ", List = listD });
 
             hospitalBindingSource.DataSource = listH;
+
+
 
         }
 
@@ -128,13 +132,27 @@ namespace HospitalCourse
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fs = new FileStream("HospStat", FileMode.Create);
-
             XmlSerializer xs = new XmlSerializer(typeof(List<Hospital>));
 
-            xs.Serialize(fs, listH);
+            using (FileStream fs = new FileStream("HospStat.xml", FileMode.OpenOrCreate))
+            {
+                xs.Serialize(fs, listH);
+            }
+        }
 
-            fs.Close();
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int n = dataGridView1.CurrentCell.RowIndex;
+            departmentBindingSource.DataSource = listH[n].List;
+            departmentBindingSource.ResetCurrentItem();
+            hospitalBindingSource.ResetCurrentItem();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int n1 = dataGridView1.CurrentCell.RowIndex;
+            int n2 = dataGridView2.CurrentCell.RowIndex;
+            patientBindingSource.DataSource = listH[n1].List[n2].List;
         }
     }
 }

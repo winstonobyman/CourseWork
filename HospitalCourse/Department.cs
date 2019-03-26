@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalCourse
 {
+    [Serializable]
     public class Department
     {
         public string Head { get; set; }

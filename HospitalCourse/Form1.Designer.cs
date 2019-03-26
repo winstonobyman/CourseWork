@@ -35,47 +35,49 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Foundation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HospHead = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.listBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.программаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.поВозрастаниюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NameD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.foundationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hospHeadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hospitalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.headDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxRoomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBindingSource4)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -152,15 +154,46 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.foundationDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.hospHeadDataGridViewTextBoxColumn});
+            this.Foundation,
+            this.Address,
+            this.HospHead,
+            this.Count});
             this.dataGridView1.DataSource = this.hospitalBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(715, 200);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Foundation
+            // 
+            this.Foundation.DataPropertyName = "Foundation";
+            this.Foundation.HeaderText = "Foundation";
+            this.Foundation.Name = "Foundation";
+            this.Foundation.Width = 108;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.Width = 89;
+            // 
+            // HospHead
+            // 
+            this.HospHead.DataPropertyName = "HospHead";
+            this.HospHead.HeaderText = "HospHead";
+            this.HospHead.Name = "HospHead";
+            this.HospHead.Width = 104;
+            // 
+            // Count
+            // 
+            this.Count.DataPropertyName = "Count";
+            this.Count.HeaderText = "Count";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.Width = 74;
             // 
             // tabPage2
             // 
@@ -222,20 +255,17 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.headDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn1,
+            this.NameD,
             this.maxRoomDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.listBindingSource4;
+            this.phoneDataGridViewTextBoxColumn,
+            this.countDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.departmentBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(6, 6);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(715, 200);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // listBindingSource4
-            // 
-            this.listBindingSource4.DataMember = "List";
-            this.listBindingSource4.DataSource = this.hospitalBindingSource;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // tabPage3
             // 
@@ -296,29 +326,17 @@
             this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.nameDataGridViewTextBoxColumn1,
             this.surnameDataGridViewTextBoxColumn,
             this.birthDataGridViewTextBoxColumn,
             this.diagDataGridViewTextBoxColumn,
             this.roomNDataGridViewTextBoxColumn});
-            this.dataGridView3.DataSource = this.listBindingSource;
+            this.dataGridView3.DataSource = this.patientBindingSource;
             this.dataGridView3.Location = new System.Drawing.Point(6, 6);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(715, 200);
             this.dataGridView3.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Name";
-            this.Column1.HeaderText = "Имя";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 64;
-            // 
-            // listBindingSource
-            // 
-            this.listBindingSource.DataMember = "List";
-            this.listBindingSource.DataSource = this.listBindingSource4;
             // 
             // menuStrip1
             // 
@@ -343,43 +361,29 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // поВозрастаниюToolStripMenuItem
             // 
             this.поВозрастаниюToolStripMenuItem.Name = "поВозрастаниюToolStripMenuItem";
-            this.поВозрастаниюToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.поВозрастаниюToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.поВозрастаниюToolStripMenuItem.Text = "По возрастанию";
+            // 
+            // NameD
+            // 
+            this.NameD.DataPropertyName = "Name";
+            this.NameD.HeaderText = "NameD";
+            this.NameD.Name = "NameD";
+            this.NameD.Width = 84;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "NameH";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // foundationDataGridViewTextBoxColumn
-            // 
-            this.foundationDataGridViewTextBoxColumn.DataPropertyName = "Foundation";
-            this.foundationDataGridViewTextBoxColumn.HeaderText = "Foundation";
-            this.foundationDataGridViewTextBoxColumn.Name = "foundationDataGridViewTextBoxColumn";
-            this.foundationDataGridViewTextBoxColumn.Width = 108;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // hospHeadDataGridViewTextBoxColumn
-            // 
-            this.hospHeadDataGridViewTextBoxColumn.DataPropertyName = "HospHead";
-            this.hospHeadDataGridViewTextBoxColumn.HeaderText = "HospHead";
-            this.hospHeadDataGridViewTextBoxColumn.Name = "hospHeadDataGridViewTextBoxColumn";
-            this.hospHeadDataGridViewTextBoxColumn.Width = 104;
+            this.nameDataGridViewTextBoxColumn.Width = 84;
             // 
             // hospitalBindingSource
             // 
@@ -391,13 +395,6 @@
             this.headDataGridViewTextBoxColumn.HeaderText = "Head";
             this.headDataGridViewTextBoxColumn.Name = "headDataGridViewTextBoxColumn";
             this.headDataGridViewTextBoxColumn.Width = 71;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.Width = 74;
             // 
             // maxRoomDataGridViewTextBoxColumn
             // 
@@ -413,37 +410,56 @@
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             this.phoneDataGridViewTextBoxColumn.Width = 78;
             // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Count";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // departmentBindingSource
+            // 
+            this.departmentBindingSource.DataSource = typeof(HospitalCourse.Department);
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "NameP";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.Width = 83;
+            // 
             // surnameDataGridViewTextBoxColumn
             // 
             this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
             this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.surnameDataGridViewTextBoxColumn.Width = 99;
+            this.surnameDataGridViewTextBoxColumn.Width = 94;
             // 
             // birthDataGridViewTextBoxColumn
             // 
             this.birthDataGridViewTextBoxColumn.DataPropertyName = "Birth";
-            this.birthDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.birthDataGridViewTextBoxColumn.HeaderText = "Birth";
             this.birthDataGridViewTextBoxColumn.Name = "birthDataGridViewTextBoxColumn";
-            this.birthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.birthDataGridViewTextBoxColumn.Width = 128;
+            this.birthDataGridViewTextBoxColumn.Width = 66;
             // 
             // diagDataGridViewTextBoxColumn
             // 
             this.diagDataGridViewTextBoxColumn.DataPropertyName = "Diag";
-            this.diagDataGridViewTextBoxColumn.HeaderText = "Диагноз";
+            this.diagDataGridViewTextBoxColumn.HeaderText = "Diag";
             this.diagDataGridViewTextBoxColumn.Name = "diagDataGridViewTextBoxColumn";
-            this.diagDataGridViewTextBoxColumn.ReadOnly = true;
-            this.diagDataGridViewTextBoxColumn.Width = 92;
+            this.diagDataGridViewTextBoxColumn.Width = 66;
             // 
             // roomNDataGridViewTextBoxColumn
             // 
             this.roomNDataGridViewTextBoxColumn.DataPropertyName = "RoomN";
-            this.roomNDataGridViewTextBoxColumn.HeaderText = "Номер палаты";
+            this.roomNDataGridViewTextBoxColumn.HeaderText = "RoomN";
             this.roomNDataGridViewTextBoxColumn.Name = "roomNDataGridViewTextBoxColumn";
-            this.roomNDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roomNDataGridViewTextBoxColumn.Width = 122;
+            this.roomNDataGridViewTextBoxColumn.Width = 84;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataSource = typeof(HospitalCourse.Patient);
             // 
             // Form1
             // 
@@ -461,13 +477,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBindingSource4)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,8 +494,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.BindingSource hospitalBindingSource;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.BindingSource listBindingSource4;
-        private System.Windows.Forms.BindingSource listBindingSource;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem программаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
@@ -496,21 +510,24 @@
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.DataGridView dataGridView2;
         public System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         public System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.BindingSource departmentBindingSource;
+        private System.Windows.Forms.BindingSource patientBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn foundationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hospHeadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn headDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Foundation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HospHead;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxRoomDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diagDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn headDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxRoomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
     }
 }
 

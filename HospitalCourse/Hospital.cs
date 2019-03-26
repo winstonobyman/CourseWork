@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HospitalCourse
-{
+{   [Serializable]
     public class Hospital
     {
         public string Name { get; set; }

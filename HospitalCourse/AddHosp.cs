@@ -26,7 +26,18 @@ namespace HospitalCourse
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (textBox1.Text == null || textBox2.Text == null || textBox1.Text == null 
+                || dateTimePicker1.Value == null)
+            {
+                MessageBox.Show("Не должно быть пустых полей!");
+                return;
+            }
+            else
+            { 
+            form1.listH.Add(new Hospital { Name = textBox1.Text,
+                Address = textBox2.Text, Foundation = dateTimePicker1.Value,
+                HospHead = textBox3.Text, List = new List<Department>() });
+            }
         }
     }
 }
